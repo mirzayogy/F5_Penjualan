@@ -233,11 +233,17 @@ public class RegisterFrame extends javax.swing.JFrame {
                     pengguna.setPassword(password);
                     pengguna.setId_pertanyaan(idPertanyaan);
                     pengguna.setJawaban(etJawaban.getText());
-                    if(pengguna.register()){
-                        JOptionPane.showMessageDialog(null, "Pendaftaran Berhasil");
+                    if(!pengguna.cekUserAda()){
+                        if(pengguna.register()){
+                            JOptionPane.showMessageDialog(null, "Pendaftaran Berhasil");
+                        }else{
+                            JOptionPane.showMessageDialog(null, "Pendaftaran Gagal");
+                        }
                     }else{
                         JOptionPane.showMessageDialog(null, "Pendaftaran Gagal");
+
                     }
+                    
                 }
             }
         }
